@@ -12,6 +12,8 @@ import MyState from "./Context/myState";
 import Login from "./Pages/Login";
 import Register from "./Pages/Register";
 import ProductInfo from "./Pages/ProductInfo";
+import AddProduct from "./Pages/AddProduct";
+import UpdateProduct from "./Pages/UpdateProduct";
 function App() {
   return (
     <MyState>
@@ -25,6 +27,8 @@ function App() {
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/productinfo/:id" element={<ProductInfo />} />
           <Route path="/*" element={<NoPage />} />
+          <Route path="/addproduct" element={<AddProduct />} />
+          <Route path="/updateproduct" element={<UpdateProduct />} />
         </Routes>
       </Router>
     </MyState>
