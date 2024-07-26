@@ -1,12 +1,9 @@
-import React, { useContext } from 'react'
-import myContext from '../context/MyContext'
+import React from 'react'
+import Layout from '../Components/Layout'
 
-const Home = () => {
-    const context=useContext(myContext);
+function Home() {
   return (
-    <div>
-      
-    </div>
+    <Layout>Home</Layout>
   )
 }
 

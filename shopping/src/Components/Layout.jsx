@@ -1,12 +1,14 @@
 import React from 'react'
-import Navbar from './Navbar'
-import Footer from './Footer'
+import Footer from '../Components/Footer'
+import Navbar from '../Components/Navbar'
 
-const Layout = ({children}) => {
+function Layout({ children }) {
   return (
     <div>
       <Navbar />
-      {children}
+      <div className="content w-10" >
+        {children}
+      </div>
       <Footer />
     </div>
   )

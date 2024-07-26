@@ -1,27 +1,29 @@
-import React from 'react'
-import {Route,Routes,BrowserRouter, Router} from "react-router-dom"
-import Home from './Pages/Home'
-import Order from './Pages/Order'
-import Dashboard from './Pages/Admin_dashboard/Dashboard'
-import Cart from './Pages/Cart'
-import NoPage from './Pages/NoPage'
-import MyState from './context/MyState'
-const App = () => {
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+} from "react-router-dom";
+import Home from './Pages/Home';
+import Order from './Pages/Order';
+import Cart from './Pages/Cart';
+import Dashboard from './Pages/Admin_dashboard/Dashboard';
+import NoPage from './Pages/NoPage';
+import MyState from "./Context/myState";
+
+function App() {
   return (
-    <div>
-      <MyState>
+    <MyState>
       <Router>
         <Routes>
-          <Route path="/" element={<Home />}></Route>
-          <Route path="/order" element={<Order />}></Route>
-          <Route path="/cart" element={<Cart />}></Route>
-          <Route path="/dashboard" element={<Dashboard />}></Route>
-          <Route path="/*" element={<NoPage />}></Route>
-          </Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/order" element={<Order />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/*" element={<NoPage />} />
+        </Routes>
       </Router>
-      </MyState>
-    </div>
-  )
+    </MyState>
+  );
 }
 
-export default App
+export default App;
