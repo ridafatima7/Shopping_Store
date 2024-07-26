@@ -14,10 +14,13 @@ import Register from "./Pages/Register";
 import ProductInfo from "./Pages/ProductInfo";
 import AddProduct from "./Pages/AddProduct";
 import UpdateProduct from "./Pages/UpdateProduct";
+import { ToastContainer } from "react-toastify";
+// import 'react-toastify/dist/ReactToastify.css';
 function App() {
   return (
     <MyState>
       <Router>
+        {/* <ToastContainer> */}
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/order" element={<Order />} />
@@ -30,9 +33,17 @@ function App() {
           <Route path="/addproduct" element={<AddProduct />} />
           <Route path="/updateproduct" element={<UpdateProduct />} />
         </Routes>
+        {/* </ToastContainer> */}
       </Router>
     </MyState>
   );
 }
-
 export default App;
+export const ProtectedRoutes = ({ children }) => {
+  if (localStorage.getItem('user')) {
+    return children
+  }
+  else {
+    return <Navigate to='/login' />
+  }
+}
