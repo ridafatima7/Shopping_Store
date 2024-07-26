@@ -47,3 +47,13 @@ export const ProtectedRoutes = ({ children }) => {
     return <Navigate to='/login' />
   }
 }
+export const ProtectedRoutesForAdmin = ({children}) => {
+  const admin = JSON.parse(localStorage.getItem('user'))
+  console.log(admin.user.email)
+  if (admin.user.email === 'rida.bsse3962@iiu.edu.pk') {
+    return children
+  }
+  else {
+    return <Navigate to='/login' />
+  }
+}
