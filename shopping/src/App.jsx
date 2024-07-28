@@ -23,15 +23,23 @@ function App() {
         {/* <ToastContainer> */}
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/order" element={<Order />} />
+          <Route path="/order" element={
+            <ProtectedRoutes>
+              <Order />
+            </ProtectedRoutes>
+          } />
           <Route path="/cart" element={<Cart />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/dashboard" element={
+            <ProtectedRoutesForAdmin><Dashboard /></ProtectedRoutesForAdmin>
+          } />
           <Route path="/productinfo/:id" element={<ProductInfo />} />
           <Route path="/*" element={<NoPage />} />
-          <Route path="/addproduct" element={<AddProduct />} />
-          <Route path="/updateproduct" element={<UpdateProduct />} />
+          <Route path="/addproduct" element={
+            <ProtectedRoutesForAdmin><AddProduct /></ProtectedRoutesForAdmin>} />
+          <Route path="/updateproduct" element={
+            <ProtectedRoutesForAdmin><UpdateProduct /></ProtectedRoutesForAdmin>} />
         </Routes>
         {/* </ToastContainer> */}
       </Router>
@@ -47,6 +55,7 @@ export const ProtectedRoutes = ({ children }) => {
     return <Navigate to='/login' />
   }
 }
+
 export const ProtectedRoutesForAdmin = ({children}) => {
   const admin = JSON.parse(localStorage.getItem('user'))
   console.log(admin.user.email)
